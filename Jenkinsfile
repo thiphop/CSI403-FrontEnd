@@ -1,9 +1,18 @@
 pipeline {
     agent any
     stages {
-        stage('build') {
+        stage('checkout') {
             steps {
-                print "Hello Jenkins"
+                print "checkout"
+                checkout([
+                    $class: 'GitSCM'
+                branches: [['*/master']]
+                useRemoteConigs: [ [
+                    credentialsId: 'ThophopPhe',
+                    url: 'https://github.com/thiphop/CSI403-FrontEnd.git'
+                ]]
+                ])
+                print "checkoutSuc"
             }
         }
     }
