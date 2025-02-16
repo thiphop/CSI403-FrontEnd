@@ -6,7 +6,7 @@ pipeline {
                 print "checkout"
                 checkout([
                     $class: 'GitSCM'
-                branches: [['*/master']]
+                branches: [['*/main']]
                 useRemoteConigs: [ [
                     credentialsId: 'ThophopPhe',
                     url: 'https://github.com/thiphop/CSI403-FrontEnd.git'
